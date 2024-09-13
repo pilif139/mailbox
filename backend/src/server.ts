@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './db';
 
@@ -6,6 +6,14 @@ import { connectDB } from './db';
 dotenv.config();
 
 const app = express();
+
+// Middleware
+app.use(express.json());
+
+app.use((err: Error, req: Request, res : Response, next: NextFunction) => {
+  console.error(err.stack);
+  res.status(500).send(err.message);
+});
 
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World");
