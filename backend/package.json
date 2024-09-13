@@ -1,0 +1,23 @@
+{
+  "name": "mailbox-backend",
+  "version": "1.0.0",
+  "description": "mailbox backend",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build" : "tsc",
+    "start": "node dist/server.js"
+  },
+  "author": "pilif139",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.4",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
