@@ -2,12 +2,12 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{svelte,js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        "inria": ["Inria Sans", "sans-serif"],
+      fontFamily:{
+        "rubik": ["rubik", "sans-serif"],
       }
     },
   },
