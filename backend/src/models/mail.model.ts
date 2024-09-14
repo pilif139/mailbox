@@ -21,7 +21,7 @@ const mailSchema = new mongoose.Schema(
             required: [true, 'invalid message']
         }
     },{
-        timestamps: true
+        timestamps: true,
     }
 )
 

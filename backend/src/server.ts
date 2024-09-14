@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import { connectDB } from './db';
 import notFound from './middlewares/not-found';
 import errorHandler from './middlewares/error';
+import userRoutes from './routes/user.route';
+import checkAuth from './middlewares/checkAuth';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -13,13 +15,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 
-app.use((err: Error, req: Request, res : Response, next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).send(err.message);
-});
+app.use('/user', userRoutes)
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World");
+
+app.get('/',checkAuth, (req, res) => {
+  res.send('Hello World!');
 });
 
 app.use(notFound);
