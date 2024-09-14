@@ -44,3 +44,7 @@ export const RegisterUser = async (req: Request,res: Response)=>{
         });
     }
 }
+
+export const LoginUser = async (req: Request,res: Response)=>{
+    
+};

@@ -11,6 +11,6 @@ export default function checkAuth(req : Request, res : Response, next: NextFunct
         req.body.userData = decodedToken;
         next();
     }catch(err : any){
-        return res.redirect('/login');
+        return res.status(302).redirect('login');
     }
 }
