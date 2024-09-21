@@ -11,6 +11,9 @@ export default function checkAuth(req : Request, res : Response, next: NextFunct
         req.body.userData = decodedToken;
         next();
     }catch(err : any){
-        return res.status(302).redirect('login');
+        return res.status(401).json({
+            message: "authentiaction failed, please use login post endpoint",
+            error: err.message
+        });
     }
 }

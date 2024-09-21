@@ -1,10 +1,11 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './db';
 import notFound from './middlewares/not-found';
 import errorHandler from './middlewares/error';
 import userRoutes from './routes/user.route';
 import checkAuth from './middlewares/checkAuth';
+import cookieParser from 'cookie-parser';
 
 // Load environment variables from .env file
 dotenv.config();
@@ -14,9 +15,9 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser());
 
-app.use( userRoutes)
-
+app.use( userRoutes);
 
 app.get('/',checkAuth, (req, res) => {
   res.send('Hello World!');
