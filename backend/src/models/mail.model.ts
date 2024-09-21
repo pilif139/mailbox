@@ -7,11 +7,6 @@ const mailSchema = new mongoose.Schema(
             ref: 'User',
             required: [true, 'invalid user']
         },
-        email: {
-            type: String,
-            required: [true, 'invalid email'],
-            unique: true
-        },
         subject: {
             type: String,
             required: [true, 'invalid subject']
